@@ -1,0 +1,32 @@
+{
+  "Data":[
+    {
+      "EventID":1,
+      "EventHost":"React Native User Group",
+      "EventImage":"http://placehold.it/500x250",
+      "EventName" : "Tech Talk - Things Every React Native Developer Should Know",
+      "EventLocation":"Skookum",
+      "EventShortDescription":"Let's do a React Native Tech Talk! We'll do it at the Skookum office in Uptown Charlotte.",
+      "EventLongDescription":"Let's do a React Native Tech Talk! We'll do it at the Skookum office in Uptown Charlotte.\r\n\r\n      Agenda:\r\n      \r\n      6:30 PM Checkin and Snacks (Pizza and Beer provided)\r\n      \r\n      7:00 PM Tech Talk - Things Every React Native Developer Should Know\r\n      \r\n      7:40 PM Q&A\r\n      \r\n      Thanks to Skookum and BeerCharlotte.com for Sponsoring!\r\n      \r\n      Parking:\r\n      BB&T building is the best option. You can also park at Courtyard Mariott - both are within the same block as the Skookum building.",
+      "EventCategory":"Mobile App Development",
+      "EventURL":"https://www.meetup.com/cltreactnative/events/258086000/",
+      "EventStartDate":"January, 31 2018 6:30 PM",
+      "EventEndDate":"January, 31 2018 8:30 PM",
+      "isKidFriendly":true
+    },
+    {
+      "EventID":2,
+      "EventHost":"React Native User Group",
+      "EventImage":"http://placehold.it/500x250",
+      "EventName" : "Tech Talk - Beer Charlotte App Development",
+      "EventLocation":"Skookum",
+      "EventShortDescription":"Let's do a React Native Tech Talk! We'll do it at the Skookum office in Uptown Charlotte.",
+      "EventLongDescription":"Let's do a React Native Tech Talk! We'll do it at the Skookum office in Uptown Charlotte.\r\n\r\n      Agenda:\r\n      \r\n      6:30 PM Checkin and Snacks (Pizza and Beer provided)\r\n      \r\n      7:00 PM Tech Talk - Things Every React Native Developer Should Know\r\n      \r\n      7:40 PM Q&A\r\n      \r\n      Thanks to Skookum and BeerCharlotte.com for Sponsoring!\r\n      \r\n      Parking:\r\n      BB&T building is the best option. You can also park at Courtyard Mariott - both are within the same block as the Skookum building.",
+      "EventCategory":"Mobile App Development",
+      "EventURL":"https://www.meetup.com/cltreactnative/events/258086000/",
+      "EventStartDate":"March, 6 2018 6:30 PM",
+      "EventEndDate":"March, 6 2018 8:30 PM",
+      "isKidFriendly":true
+    }
+  ]
+}
