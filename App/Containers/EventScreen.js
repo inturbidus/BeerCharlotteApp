@@ -34,6 +34,7 @@ export default class EventScreen extends Component {
     return (
       <View style={styles.mainContainer}>
         <ScrollView style={styles.container}>
+        <Text>Hello World</Text>
         </ScrollView>
       </View>
     )
