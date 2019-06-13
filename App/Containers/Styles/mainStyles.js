@@ -11,7 +11,7 @@ export default StyleSheet.create({
       height: Metrics.images.logo,
       width: Metrics.images.logo,
       fontFamily: Fonts.type.base,
-      alignItems: 'stretch',
+      color: Colors.snow,
   },
 
 sectionMain: {
@@ -19,6 +19,12 @@ sectionMain: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     
+},
+
+sectionCard: {
+    borderRadius: 12,
+    borderColor: '#ffffff',
+    padding: 0,
 },
 
 
@@ -54,7 +60,7 @@ sectionImageMap: {
       color:Colors.snow,
   },
  
-  sectionLoc: {
+  sectionText: {
     fontSize: 14,
     paddingTop: 5,
     paddingLeft: 5,
