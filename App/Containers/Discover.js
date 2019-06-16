@@ -5,7 +5,18 @@ import styles from './Styles/mainStyles';
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-export default class Discovery extends Component {
+class Discovery extends Component {
+  static navigationOptions = {
+    title: 'Events',
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTintColor: '#000',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
+
   state = {
     data: []
   }
@@ -36,3 +47,11 @@ export default class Discovery extends Component {
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Discovery
+  }
+});
+
+export default createAppContainer(AppNavigator);
