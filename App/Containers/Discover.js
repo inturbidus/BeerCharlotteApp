@@ -3,6 +3,8 @@ import { FlatList, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import styles from './Styles/mainStyles';
 
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
 export default class Discovery extends Component {
   state = {
     data: []
@@ -17,14 +19,14 @@ export default class Discovery extends Component {
       const json = await response.json();
       this.setState({data: json._embedded.events});
   }
-  
+
   render () {
     return (
       <FlatList data={this.state.data}
         keyExtractor= {(x, i) => i.toString()}
         renderItem={({item}) => 
           <Card style={styles.sectionCard} image={item.images[0]}>
-            <Text style={{fontWeight: "bold"}}>{`${item.name}`}</Text>
+            <Text style={{fontFamily: "Avenir-Black"}}>{`${item.name}`}</Text>
             <Text style={{color: "#ccc"}}>{`${item.dates.start.localDate}`}</Text>
             <Text style={{color: "#333"}}>{`${item._embedded.venues[0].name}`}</Text>
             <Text style={{color: "#333"}}>{`${item._embedded.venues[0].city.name}`}</Text>{item._embedded.venues[0].state && <Text>{item._embedded.venues[0].state.stateCode}</Text>}
@@ -34,5 +36,3 @@ export default class Discovery extends Component {
     );
   }
 }
-
-      
