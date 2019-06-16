@@ -3,52 +3,34 @@ import { FlatList, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import styles from './Styles/mainStyles';
 
-const events = [
-  {
-    id: 1,
-     title: 'Beer Pairing'
-  },
-
-  {
-    id: 2,
-     title: 'Pairing for Beer'
-  },
-
- ]
-
-
-
 export default class Discovery extends Component {
   state = {
     data: []
-}
+  }
 
-componentWillMount() {
-    this.fetchData();
-}
+  componentWillMount() {
+      this.fetchData();
+  }
 
-fetchData = async () => {
-    const response = await fetch('https://randomuser.me/api?results=10');
-    const json = await response.json();
-    this.setState({data: json.results});
-}
-
-
-      render () {
-        return (
-    
-            <View style={styles.container}>
-                <FlatList data={this.state.data}
-                keyExtractor= {(x, i) => i.toString()}
-                renderItem={({item}) => 
-                <Card title={"Event"} style={styles.sectionCard} image={require('../Images/bm_image.jpg')}>
-                  <Text>{`${item.name.first} ${item.name.last}`}</Text>
-                  <Text>{`${item.name.first} ${item.name.last}`}</Text>
-                  <Text>{`${item.name.first} ${item.name.last}`}</Text>
-                </Card>
-                }
-               />
-            </View>
+  fetchData = async () => {
+      const response = await fetch('https://app.ticketmaster.com/discovery/v2/events.json?apikey=b5wXI8BKA2qGkmodIwTYZIxPLAABcAJg');
+      const json = await response.json();
+      this.setState({data: json._embedded.events});
+  }
+  
+  render () {
+    return (
+      <FlatList data={this.state.data}
+        keyExtractor= {(x, i) => i.toString()}
+        renderItem={({item}) => 
+          <Card style={styles.sectionCard} image={item.images[0]}>
+            <Text style={{fontWeight: "bold"}}>{`${item.name}`}</Text>
+            <Text style={{color: "#ccc"}}>{`${item.dates.start.localDate}`}</Text>
+            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].name}`}</Text>
+            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].city.name}`}</Text>{item._embedded.venues[0].state && <Text>{item._embedded.venues[0].state.stateCode}</Text>}
+          </Card>
+        }
+      />
     );
   }
 }
