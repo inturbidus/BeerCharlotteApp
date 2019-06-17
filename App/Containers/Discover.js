@@ -25,6 +25,7 @@ export default class Discovery extends Component {
   render () {
     return (
       <FlatList data={this.state.data}
+        style={styles.container}
         keyExtractor= {(x, i) => i.toString()}
         renderItem={({item}) => 
           <Card style={styles.sectionCard} image={{uri: item.image.url}}>
@@ -34,6 +35,7 @@ export default class Discovery extends Component {
       />
     );
   }
+
 }
 
       
