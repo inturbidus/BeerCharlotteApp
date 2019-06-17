@@ -4,7 +4,7 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../Themes/';
 
 
 export default StyleSheet.create({
-    ...ApplicationStyles.screen,
+  ...ApplicationStyles.screen,
   container: {
       backgroundColor: "white"
   },
@@ -39,27 +39,28 @@ export default StyleSheet.create({
       width: 70,
       height: 70,
   },
-    sectionHeader: {
-      fontWeight: 'bold',
-      fontSize: 16,
-      textDecorationLine: 'underline',
-      color:Colors.ginger,
-      paddingTop: 5,
-      paddingLeft: 5,
-    },
 
-    sectionDate: {
-        fontSize: 14,
-        paddingTop: 5,
-        paddingLeft: 5,
-        color:Colors.snow,
-    },
-  
-    sectionText: {
+  sectionHeader: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    textDecorationLine: 'underline',
+    color:Colors.ginger,
+    paddingTop: 5,
+    paddingLeft: 5,
+  },
+
+  sectionDate: {
       fontSize: 14,
       paddingTop: 5,
       paddingLeft: 5,
       color:Colors.snow,
   },
+  
+  sectionText: {
+    fontSize: 14,
+    paddingTop: 5,
+    paddingLeft: 5,
+    color:Colors.snow,
+  },
 
-  })
+})
