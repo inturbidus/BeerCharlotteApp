@@ -8,13 +8,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 class Discovery extends Component {
   static navigationOptions = {
     title: 'Events',
-    headerStyle: {
-      backgroundColor: '#fff',
-    },
-    headerTintColor: '#000',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
+    /* No more header config here! */
   };
 
   state = {
@@ -47,11 +41,23 @@ class Discovery extends Component {
     );
   }
 }
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: Discovery
+const RootStack = createStackNavigator(
+  {
+    Events: Discovery
+  },
+  {
+    initialRouteName: 'Events',
+    /* The header config from HomeScreen is now here */
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#fff',
+      },
+      headerTintColor: '#000',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
   }
-});
+);
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(RootStack);
