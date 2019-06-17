@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View, Button, TouchableWithoutFeedback } from 'react-native';
 import { Card } from 'react-native-elements';
 import styles from './Styles/mainStyles';
 
@@ -30,18 +30,35 @@ class Discovery extends Component {
       <FlatList data={this.state.data}
         keyExtractor= {(x, i) => i.toString()}
         renderItem={({item}) => 
-          <Card style={styles.sectionCard} image={item.images[0]}>
-            <Text style={{fontFamily: "Avenir-Black"}}>{`${item.name}`}</Text>
-            <Text style={{color: "#ccc"}}>{`${item.dates.start.localDate}`}</Text>
-            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].name}`}</Text>
-            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].city.name}`}</Text>{item._embedded.venues[0].state && <Text>{item._embedded.venues[0].state.stateCode}</Text>}
-          </Card>
+          <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('EventDetails')}>
+            <Card style={styles.sectionCard} image={item.images[0]}>
+              <Text style={{fontFamily: "Avenir-Black"}}>{`${item.name}`}</Text>
+              <Text style={{color: "#ccc"}}>{`${item.dates.start.localDate}`}</Text>
+              <Text style={{color: "#333"}}>{`${item._embedded.venues[0].name}`}</Text>
+              <Text style={{color: "#333"}}>{`${item._embedded.venues[0].city.name}`}</Text>{item._embedded.venues[0].state && <Text>{item._embedded.venues[0].state.stateCode}</Text>}
+            </Card>
+          </TouchableWithoutFeedback>
         }
       />
     );
   }
 }
-const RootStack = createStackNavigator(
+
+class Details extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
+
+const MainStack = createStackNavigator(
   {
     Events: Discovery
   },
@@ -59,5 +76,21 @@ const RootStack = createStackNavigator(
     },
   }
 );
+
+const RootStack = createStackNavigator(
+  {
+    Main: {
+      screen: MainStack,
+    },
+    EventDetails: {
+      screen: Details,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  }
+);
+
 
 export default createAppContainer(RootStack);
