@@ -5,17 +5,21 @@ import styles from './Styles/mainStyles';
 
 export default class Discovery extends Component {
   state = {
-    data: []
+    data: [ {
+      name: "Event 1",
+      image: {
+        url: "https://via.placeholder.com/340x160?text=Event 1"
+      }
+    },
+    {
+      name: "Event 2",
+      image: {
+        url: "https://via.placeholder.com/340x160?text=Event 2"
+      }
+    }]
   }
 
   componentWillMount() {
-      this.fetchData();
-  }
-
-  fetchData = async () => {
-      const response = await fetch('https://app.ticketmaster.com/discovery/v2/events.json?apikey=b5wXI8BKA2qGkmodIwTYZIxPLAABcAJg');
-      const json = await response.json();
-      this.setState({data: json._embedded.events});
   }
   
   render () {
@@ -23,11 +27,8 @@ export default class Discovery extends Component {
       <FlatList data={this.state.data}
         keyExtractor= {(x, i) => i.toString()}
         renderItem={({item}) => 
-          <Card style={styles.sectionCard} image={item.images[0]}>
-            <Text style={{fontWeight: "bold"}}>{`${item.name}`}</Text>
-            <Text style={{color: "#ccc"}}>{`${item.dates.start.localDate}`}</Text>
-            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].name}`}</Text>
-            <Text style={{color: "#333"}}>{`${item._embedded.venues[0].city.name}`}</Text>{item._embedded.venues[0].state && <Text>{item._embedded.venues[0].state.stateCode}</Text>}
+          <Card style={styles.sectionCard} image={{uri: item.image.url}}>
+            <Text style={{fontWeight: "bold"}}>{item.name}</Text>
           </Card>
         }
       />
